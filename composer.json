@@ -1,0 +1,15 @@
+{
+    "name": "debox/graphql",
+    "description": "plugin graphql for octobercms.",
+    "type": "october-plugin",
+    "require": {
+        "webonyx/graphql-php": "~0.10.2",
+        "composer/installers": "~1.0"
+    },
+    "authors": [
+        {
+            "name": "Nurdiansyah",
+            "email": "nur.diansyah.ckt@gmail.com"
+        }
+    ]
+}
