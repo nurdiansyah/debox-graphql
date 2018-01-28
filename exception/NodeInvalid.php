@@ -1,5 +1,5 @@
 <?php
-namespace Nurdiansyah\Graphql\Exception;
+namespace Debox\Graphql\Exception;
 
 use Exception;
 

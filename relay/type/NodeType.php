@@ -1,10 +1,10 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay\Type;
+namespace Debox\Graphql\Relay\Type;
 
 
-use Nurdiansyah\Graphql\Support\Facades\GraphQL;
-use Nurdiansyah\Graphql\Support\GraphQLType;
-use Nurdiansyah\Graphql\Relay\Field\NodeIdField;
+use Debox\Graphql\Support\Facades\GraphQL;
+use Debox\Graphql\Support\GraphQLType;
+use Debox\Graphql\Relay\Field\NodeIdField;
 
 abstract class NodeType extends GraphQLType implements NodeContract {
     public function fields() {

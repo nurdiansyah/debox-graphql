@@ -1,4 +1,4 @@
-<?php namespace Nurdiansyah\Graphql\Exception;
+<?php namespace Debox\Graphql\Exception;
 
 use Exception;
 

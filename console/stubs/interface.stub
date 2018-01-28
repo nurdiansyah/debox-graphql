@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use Nurdiansyah\Graphql\Support\InterfaceType;
+use Debox\Graphql\Support\InterfaceType;
 use GraphQL\Type\Definition\Type;
 
 class DummyClass extends InterfaceType {

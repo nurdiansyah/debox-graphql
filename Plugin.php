@@ -1,15 +1,15 @@
-<?php namespace Nurdiansyah\Graphql;
+<?php namespace Debox\Graphql;
 
 use Backend\Facades\Backend;
-use Nurdiansyah\Graphql\Console\EnumMakeCommand;
-use Nurdiansyah\Graphql\Console\FieldMakeCommand;
-use Nurdiansyah\Graphql\Console\InterfaceMakeCommand;
-use Nurdiansyah\Graphql\Console\MutationMakeCommand;
-use Nurdiansyah\Graphql\Console\QueryMakeCommand;
-use Nurdiansyah\Graphql\Console\ScalarMakeCommand;
-use Nurdiansyah\Graphql\Console\TypeMakeCommand;
-use Nurdiansyah\Graphql\Events\SchemaAdded;
-use Nurdiansyah\Graphql\Relay\RelayServiceProvider;
+use Debox\Graphql\Console\EnumMakeCommand;
+use Debox\Graphql\Console\FieldMakeCommand;
+use Debox\Graphql\Console\InterfaceMakeCommand;
+use Debox\Graphql\Console\MutationMakeCommand;
+use Debox\Graphql\Console\QueryMakeCommand;
+use Debox\Graphql\Console\ScalarMakeCommand;
+use Debox\Graphql\Console\TypeMakeCommand;
+use Debox\Graphql\Events\SchemaAdded;
+use Debox\Graphql\Relay\RelayServiceProvider;
 use GraphQL\Validator\DocumentValidator;
 use System\Classes\PluginBase;
 
@@ -37,7 +37,7 @@ class Plugin extends PluginBase {
         return [
             'name' => 'Graphql',
             'description' => 'graphql support',
-            'author' => 'Nurdiansyah',
+            'author' => 'Debox',
             'icon' => 'icon-leaf'
         ];
     }
@@ -90,9 +90,9 @@ class Plugin extends PluginBase {
         return [
             'graphql-menu' => [
                 'label' => 'Graphql',
-                'url' => Backend::url('Nurdiansyah/Graphql/graphiql'),
+                'url' => Backend::url('Debox/Graphql/graphiql'),
                 'icon' => 'icon-leaf',
-                'permissions' => ['Nurdiansyah.Graphql.*'],
+                'permissions' => ['Debox.Graphql.*'],
                 'order' => 500,
             ],
         ];
@@ -156,7 +156,7 @@ class Plugin extends PluginBase {
      * @return void
      */
     private function bootRouter() {
-        if ($this->app['config']->get('Nurdiansyah.Graphql::routes') && !$this->app->routesAreCached()) {
+        if ($this->app['config']->get('Debox.Graphql::routes') && !$this->app->routesAreCached()) {
             include __DIR__ . '/routes.php';
         }
     }
@@ -168,7 +168,7 @@ class Plugin extends PluginBase {
      * @return void
      */
     protected function addTypes(GraphQLService $graphql) {
-        $types = $this->app['config']->get('Nurdiansyah.Graphql::types', []);
+        $types = $this->app['config']->get('Debox.Graphql::types', []);
 
         foreach ($types as $name => $type) {
             $graphql->addType($type, is_numeric($name) ? null : $name);
@@ -182,7 +182,7 @@ class Plugin extends PluginBase {
      * @return void
      */
     protected function addSchemas(GraphQLService $graphql) {
-        $schemas = $this->app['config']->get('Nurdiansyah.Graphql::schemas', []);
+        $schemas = $this->app['config']->get('Debox.Graphql::schemas', []);
 
         foreach ($schemas as $name => $schema) {
             $graphql->addSchema($name, $schema);
@@ -195,21 +195,21 @@ class Plugin extends PluginBase {
      * @return void
      */
     protected function applySecurityRules() {
-        $maxQueryComplexity = config('Nurdiansyah.Graphql::security.query_max_complexity');
+        $maxQueryComplexity = config('Debox.Graphql::security.query_max_complexity');
         if ($maxQueryComplexity !== null) {
             /** @var QueryComplexity $queryComplexity */
             $queryComplexity = DocumentValidator::getRule('QueryComplexity');
             $queryComplexity->setMaxQueryComplexity($maxQueryComplexity);
         }
 
-        $maxQueryDepth = config('Nurdiansyah.Graphql::security.query_max_depth');
+        $maxQueryDepth = config('Debox.Graphql::security.query_max_depth');
         if ($maxQueryDepth !== null) {
             /** @var QueryDepth $queryDepth */
             $queryDepth = DocumentValidator::getRule('QueryDepth');
             $queryDepth->setMaxQueryDepth($maxQueryDepth);
         }
 
-        $disableIntrospection = config('Nurdiansyah.Graphql::security.disable_introspection');
+        $disableIntrospection = config('Debox.Graphql::security.disable_introspection');
         if ($disableIntrospection === true) {
             /** @var DisableIntrospection $disableIntrospection */
             $disableIntrospection = DocumentValidator::getRule('DisableIntrospection');

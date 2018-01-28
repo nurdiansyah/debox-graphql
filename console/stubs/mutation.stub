@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use Nurdiansyah\Graphql\Support\Mutation;
+use Debox\Graphql\Support\Mutation;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use GraphQL;

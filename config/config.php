@@ -36,11 +36,11 @@ return [
      * Example:
      *
      * 'controllers' => [
-     *     'query' => '\Nurdiansyah\Graphql\GraphQLController@query',
-     *     'mutation' => '\Nurdiansyah\Graphql\GraphQLController@mutation'
+     *     'query' => '\Debox\Graphql\GraphQLController@query',
+     *     'mutation' => '\Debox\Graphql\GraphQLController@mutation'
      * ]
      */
-    'controllers' => \Nurdiansyah\Graphql\GraphQLController::class.'@query',
+    'controllers' => \Debox\Graphql\GraphQLController::class.'@query',
 
     /*
      * The name of the input variable that contain variables when you query the
@@ -145,7 +145,7 @@ return [
      *     'locations' => []
      * ]
      */
-    'error_formatter' => [\Nurdiansyah\Graphql\GraphQLService::class, 'formatError'],
+    'error_formatter' => [\Debox\Graphql\GraphQLService::class, 'formatError'],
 
     /*
      * Options to limit the query complexity and depth. See the doc

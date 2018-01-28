@@ -1,6 +1,6 @@
 <?php
 
-namespace Nurdiansyah\Graphql\Support;
+namespace Debox\Graphql\Support;
 
 use GraphQL\Type\Definition\EnumType as EnumObjectType;
 

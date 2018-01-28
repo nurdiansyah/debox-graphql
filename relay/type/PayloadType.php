@@ -1,8 +1,8 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay\Type;
+namespace Debox\Graphql\Relay\Type;
 
-use Nurdiansyah\Graphql\Support\GraphQLType;
-use Nurdiansyah\Graphql\Relay\Traits\HasClientMutationIdField;
+use Debox\Graphql\Support\GraphQLType;
+use Debox\Graphql\Relay\Traits\HasClientMutationIdField;
 
 class PayloadType extends GraphQLType {
     use HasClientMutationIdField;

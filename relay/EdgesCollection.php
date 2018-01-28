@@ -1,5 +1,5 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay;
+namespace Debox\Graphql\Relay;
 
 use Illuminate\Database\Eloquent\Collection;
 

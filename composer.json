@@ -1,5 +1,5 @@
 {
-    "name": "Nurdiansyah/Graphql",
+    "name": "Debox/Graphql",
     "description": "plugin graphql for octobercms.",
     "type": "october-plugin",
     "require": {

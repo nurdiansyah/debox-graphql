@@ -1,10 +1,10 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay\Type;
+namespace Debox\Graphql\Relay\Type;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\InterfaceType;
-use Nurdiansyah\Graphql\Support\GraphQLType;
-use Nurdiansyah\Graphql\Relay\EdgesCollection;
+use Debox\Graphql\Support\GraphQLType;
+use Debox\Graphql\Relay\EdgesCollection;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 

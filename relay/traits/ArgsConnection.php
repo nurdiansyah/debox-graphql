@@ -1,5 +1,5 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay\Traits;
+namespace Debox\Graphql\Relay\Traits;
 
 use GraphQL\Type\Definition\Type;
 

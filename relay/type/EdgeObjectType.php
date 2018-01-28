@@ -1,5 +1,5 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay\Type;
+namespace Debox\Graphql\Relay\Type;
 
 use GraphQL\Type\Definition\ObjectType;
 

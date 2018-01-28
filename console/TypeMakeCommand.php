@@ -1,6 +1,6 @@
 <?php
 
-namespace Nurdiansyah\Graphql\Console;
+namespace Debox\Graphql\Console;
 
 use Symfony\Component\Console\Input\InputOption;
 

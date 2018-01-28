@@ -1,4 +1,4 @@
-<?php namespace Nurdiansyah\Graphql\Error;
+<?php namespace Debox\Graphql\Error;
 
 use GraphQL\Error\Error;
 

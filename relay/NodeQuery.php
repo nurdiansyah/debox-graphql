@@ -1,10 +1,10 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay;
+namespace Debox\Graphql\Relay;
 
-use Nurdiansyah\Graphql\Exception\NodeInvalid;
-use Nurdiansyah\Graphql\Exception\TypeNotFound;
-use Nurdiansyah\Graphql\Support\GraphQLQuery;
-use Nurdiansyah\Graphql\Relay\Type\NodeContract;
+use Debox\Graphql\Exception\NodeInvalid;
+use Debox\Graphql\Exception\TypeNotFound;
+use Debox\Graphql\Support\GraphQLQuery;
+use Debox\Graphql\Relay\Type\NodeContract;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 

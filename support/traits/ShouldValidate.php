@@ -1,8 +1,8 @@
 <?php
 
-namespace Nurdiansyah\Graphql\Support\Traits;
+namespace Debox\Graphql\Support\Traits;
 
-use Nurdiansyah\Graphql\Error\ValidationError;
+use Debox\Graphql\Error\ValidationError;
 use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\ListOfType;
 use GraphQL\Type\Definition\WrappingType;

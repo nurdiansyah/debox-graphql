@@ -1,4 +1,4 @@
-<?php namespace Nurdiansyah\Graphql\Support\Facades;
+<?php namespace Debox\Graphql\Support\Facades;
 
 
 use October\Rain\Support\Facade;

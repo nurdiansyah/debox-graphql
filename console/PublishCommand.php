@@ -1,6 +1,6 @@
 <?php
 
-namespace Nurdiansyah\Graphql\Console;
+namespace Debox\Graphql\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

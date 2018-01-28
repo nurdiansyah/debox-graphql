@@ -1,5 +1,5 @@
 <?php
-namespace Nurdiansyah\Graphql\Support\Facades;
+namespace Debox\Graphql\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

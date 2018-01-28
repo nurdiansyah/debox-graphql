@@ -1,8 +1,8 @@
 <?php
-namespace Nurdiansyah\Graphql\Relay\Type;
+namespace Debox\Graphql\Relay\Type;
 
 
-use Nurdiansyah\Graphql\Support\GraphQLType;
+use Debox\Graphql\Support\GraphQLType;
 use GraphQL\Type\Definition\Type;
 
 class ConnectionEdgeType extends GraphQLType {
