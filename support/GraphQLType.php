@@ -1,6 +1,6 @@
 <?php
 
-namespace debox\graphql\support;
+namespace Nurdiansyah\Graphql\Support;
 
 use GraphQL\Type\Definition\EnumType;
 use Illuminate\Support\Fluent;

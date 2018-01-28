@@ -1,19 +1,19 @@
-<?php namespace debox\graphql;
+<?php namespace Nurdiansyah\Graphql;
 
-use debox\graphql\support\GraphQLType;
+use Nurdiansyah\Graphql\Support\GraphQLType;
 use GraphQL\GraphQL as GraphQLBase;
 use GraphQL\Error\Error;
 
 use GraphQL\Language\SourceLocation;
 use GraphQL\Type\Definition\ObjectType;
 
-use debox\graphql\error\ValidationError;
+use Nurdiansyah\Graphql\Error\ValidationError;
 
-use debox\graphql\exception\TypeNotFound;
-use debox\graphql\exception\SchemaNotFound;
+use Nurdiansyah\Graphql\Exception\TypeNotFound;
+use Nurdiansyah\Graphql\Exception\SchemaNotFound;
 
-use debox\graphql\events\SchemaAdded;
-use debox\graphql\events\TypeAdded;
+use Nurdiansyah\Graphql\Events\SchemaAdded;
+use Nurdiansyah\Graphql\Events\TypeAdded;
 use GraphQL\Type\Schema;
 use October\Rain\Foundation\Application;
 
@@ -39,7 +39,7 @@ class GraphQLService {
 
         $this->clearTypeInstances();
 
-        $schemaName = is_string($schema) ? $schema : config('debox.graphql::schema', 'default');
+        $schemaName = is_string($schema) ? $schema : config('Nurdiansyah.Graphql::schema', 'default');
         if (!is_array($schema) && !isset($this->schemas[$schemaName])) {
             throw new SchemaNotFound('Type ' . $schemaName . ' not found.');
         }
@@ -133,7 +133,7 @@ class GraphQLService {
         $result = $this->executeQuery($query, $variables, $opts);
 
         if (!empty($result->errors)) {
-            $errorFormatter = config('debox.graphql::error_formatter', [self::class, 'formatError']);
+            $errorFormatter = config('Nurdiansyah.Graphql::error_formatter', [self::class, 'formatError']);
 
             return [
                 'data' => $result->data,

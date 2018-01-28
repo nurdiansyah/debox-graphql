@@ -1,9 +1,9 @@
 <?php
-namespace debox\graphql\relay;
+namespace Nurdiansyah\Graphql\Relay;
 
-use debox\graphql\GraphQLService;
-use debox\graphql\relay\field\ConnectionField;
-use debox\graphql\relay\type\ConnectionType;
+use Nurdiansyah\Graphql\GraphQLService;
+use Nurdiansyah\Graphql\Relay\Field\ConnectionField;
+use Nurdiansyah\Graphql\Relay\Type\ConnectionType;
 use Illuminate\Contracts\Foundation\Application;
 
 class RelayService {

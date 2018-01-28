@@ -1,10 +1,10 @@
 <?php
 
-namespace debox\graphql\support;
+namespace Nurdiansyah\Graphql\Support;
 
 use Validator;
-use debox\graphql\error\ValidationError;
-use debox\graphql\support\traits\ShouldValidate;
+use Nurdiansyah\Graphql\Error\ValidationError;
+use Nurdiansyah\Graphql\Support\Traits\ShouldValidate;
 
 class GraphQLMutation extends GraphQLField
 {

@@ -1,8 +1,8 @@
 <?php
-namespace debox\graphql\relay\type;
+namespace Nurdiansyah\Graphql\Relay\Type;
 
-use debox\graphql\support\GraphQLType;
-use debox\graphql\relay\traits\HasClientMutationIdField;
+use Nurdiansyah\Graphql\Support\GraphQLType;
+use Nurdiansyah\Graphql\Relay\Traits\HasClientMutationIdField;
 
 class InputType extends GraphQLType {
     use HasClientMutationIdField;

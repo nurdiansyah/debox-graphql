@@ -1,5 +1,5 @@
 <?php
-namespace debox\graphql\controllers;
+namespace Nurdiansyah\Graphql\Controllers;
 
 
 use Backend\Classes\Controller;
@@ -14,7 +14,7 @@ class Graphiql extends Controller {
      */
     public function __construct() {
         parent::__construct();
-        BackendMenu::setContext('debox.graphql', 'graphql-menu');
+        BackendMenu::setContext('Nurdiansyah.Graphql', 'graphql-menu');
     }
 
     public function index() {

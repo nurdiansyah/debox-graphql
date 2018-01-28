@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use GraphQL\Type\Definition\Type;
-use debox\graphql\support\Field;
+use Nurdiansyah\Graphql\Support\Field;
 
 class DummyClass extends Field {
     protected $attributes = [

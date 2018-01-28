@@ -1,9 +1,9 @@
 <?php
 
-namespace debox\graphql\support;
+namespace Nurdiansyah\Graphql\Support;
 
 use Illuminate\Support\Fluent;
-use debox\graphql\error\AuthorizationError;
+use Nurdiansyah\Graphql\Error\AuthorizationError;
 
 class GraphQLField extends Fluent {
 

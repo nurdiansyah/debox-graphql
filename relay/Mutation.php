@@ -1,10 +1,10 @@
 <?php
 
 
-namespace debox\graphql\relay;
+namespace Nurdiansyah\Graphql\Relay;
 
 
-use debox\graphql\support\GraphQLMutation;
+use Nurdiansyah\Graphql\Support\GraphQLMutation;
 
 class Mutation extends GraphQLMutation {
     protected $inputType;

@@ -1,4 +1,4 @@
-<?php namespace debox\graphql\events;
+<?php namespace Nurdiansyah\Graphql\Events;
 
 class SchemaAdded
 {

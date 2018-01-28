@@ -1,8 +1,8 @@
 <?php
-namespace debox\graphql\relay;
+namespace Nurdiansyah\Graphql\Relay;
 
-use debox\graphql\exception\NodeRootInvalid;
-use debox\graphql\support\GraphQLInterfaceType;
+use Nurdiansyah\Graphql\Exception\NodeRootInvalid;
+use Nurdiansyah\Graphql\Support\GraphQLInterfaceType;
 use GraphQL\Type\Definition\Type;
 
 class NodeInterface extends GraphQLInterfaceType {

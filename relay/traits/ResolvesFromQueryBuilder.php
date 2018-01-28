@@ -1,7 +1,7 @@
 <?php
-namespace debox\graphql\relay\traits;
+namespace Nurdiansyah\Graphql\Relay\Traits;
 
-use debox\graphql\relay\EdgesCollection;
+use Nurdiansyah\Graphql\Relay\EdgesCollection;
 use Illuminate\Database\Query\Builder;
 use October\Rain\Database\Relations\Relation;
 

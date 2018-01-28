@@ -1,8 +1,8 @@
 <?php
-namespace debox\graphql\relay\Field;
+namespace Nurdiansyah\Graphql\Relay\Field;
 
-use debox\graphql\support\facades\Relay;
-use debox\graphql\support\GraphQLField;
+use Nurdiansyah\Graphql\Support\Facades\Relay;
+use Nurdiansyah\Graphql\Support\GraphQLField;
 use GraphQL\Type\Definition\Type;
 
 class NodeIdField extends GraphQLField {

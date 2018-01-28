@@ -1,6 +1,6 @@
 <?php
 
-namespace debox\graphql\support;
+namespace Nurdiansyah\Graphql\Support;
 
 class GraphQLQuery extends GraphQLField {
 

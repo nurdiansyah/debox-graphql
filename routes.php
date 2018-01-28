@@ -9,7 +9,7 @@ Event::listen('backend.beforeRoute', function () {
 
     $graphQLRouter = function ($router) use($schemaParameterPattern) {
         //Get routes from config
-        $routes = config('debox.graphql::routes');
+        $routes = config('Nurdiansyah.Graphql::routes');
         $queryRoute = null;
         $mutationRoute = null;
         if (is_array($routes)) {
@@ -21,7 +21,7 @@ Event::listen('backend.beforeRoute', function () {
         }
 
         //Get controllers from config
-        $controllers = config('debox.graphql::controllers', '\debox\graphql\GraphQLController@query');
+        $controllers = config('Nurdiansyah.Graphql::controllers', '\Nurdiansyah\Graphql\GraphQLController@query');
         $queryController = null;
         $mutationController = null;
         if (is_array($controllers)) {
@@ -39,28 +39,28 @@ Event::listen('backend.beforeRoute', function () {
                 preg_match($schemaParameterPattern, $queryRoute)
             ) {
                 $router->get(preg_replace($schemaParameterPattern, '', $queryRoute), array(
-                    'as' => 'debox.graphql::query',
+                    'as' => 'Nurdiansyah.Graphql::query',
                     'uses' => $queryController
                 ));
                 $router->get(preg_replace($schemaParameterPattern, '{graphql_schema}', $queryRoute), array(
-                    'as' => 'debox.graphql::query.with_schema',
+                    'as' => 'Nurdiansyah.Graphql::query.with_schema',
                     'uses' => $queryController
                 ));
                 $router->post(preg_replace($schemaParameterPattern, '', $queryRoute), array(
-                    'as' => 'debox.graphql::query.post',
+                    'as' => 'Nurdiansyah.Graphql::query.post',
                     'uses' => $queryController
                 ));
                 $router->post(preg_replace($schemaParameterPattern, '{graphql_schema}', $queryRoute), array(
-                    'as' => 'debox.graphql::query.post.with_schema',
+                    'as' => 'Nurdiansyah.Graphql::query.post.with_schema',
                     'uses' => $queryController
                 ));
             } else {
                 $router->get($queryRoute, array(
-                    'as' => 'debox.graphql::query',
+                    'as' => 'Nurdiansyah.Graphql::query',
                     'uses' => $queryController
                 ));
                 $router->post($queryRoute, array(
-                    'as' => 'debox.graphql::query.post',
+                    'as' => 'Nurdiansyah.Graphql::query.post',
                     'uses' => $queryController
                 ));
             }
@@ -73,28 +73,28 @@ Event::listen('backend.beforeRoute', function () {
                 preg_match($schemaParameterPattern, $mutationRoute)
             ) {
                 $router->post(preg_replace($schemaParameterPattern, '', $mutationRoute), array(
-                    'as' => 'debox.graphql::mutation',
+                    'as' => 'Nurdiansyah.Graphql::mutation',
                     'uses' => $mutationController
                 ));
                 $router->post(preg_replace($schemaParameterPattern, '{graphql_schema}', $mutationRoute), array(
-                    'as' => 'debox.graphql::mutation.with_schema',
+                    'as' => 'Nurdiansyah.Graphql::mutation.with_schema',
                     'uses' => $mutationController
                 ));
                 $router->get(preg_replace($schemaParameterPattern, '', $mutationRoute), array(
-                    'as' => 'debox.graphql::mutation.get',
+                    'as' => 'Nurdiansyah.Graphql::mutation.get',
                     'uses' => $mutationController
                 ));
                 $router->get(preg_replace($schemaParameterPattern, '{graphql_schema}', $mutationRoute), array(
-                    'as' => 'debox.graphql::mutation.get.with_schema',
+                    'as' => 'Nurdiansyah.Graphql::mutation.get.with_schema',
                     'uses' => $mutationController
                 ));
             } else {
                 $router->post($mutationRoute, array(
-                    'as' => 'debox.graphql::mutation',
+                    'as' => 'Nurdiansyah.Graphql::mutation',
                     'uses' => $mutationController
                 ));
                 $router->get($mutationRoute, array(
-                    'as' => 'debox.graphql::mutation.get',
+                    'as' => 'Nurdiansyah.Graphql::mutation.get',
                     'uses' => $mutationController
                 ));
             }
@@ -104,39 +104,39 @@ Event::listen('backend.beforeRoute', function () {
     /*
      * Extensibility
      */
-    Event::fire('debox.graphql::beforeRoute');
+    Event::fire('Nurdiansyah.Graphql::beforeRoute');
     /*
      * Other pages
      */
     Route::group([
-        'prefix' => config('debox.graphql::prefix'),
-        'middleware' => config('debox.graphql::middleware', [])
+        'prefix' => config('Nurdiansyah.Graphql::prefix'),
+        'middleware' => config('Nurdiansyah.Graphql::middleware', [])
     ], $graphQLRouter);
     /*
      * Graphiql
      */
     //GraphiQL
-    $graphiQL = Config::get('debox.graphql::graphiql', true);
+    $graphiQL = Config::get('Nurdiansyah.Graphql::graphiql', true);
     if ($graphiQL) {
         Route::group([], function ($router) use ($schemaParameterPattern) {
-            $graphiQLRoute = config('debox.graphql::graphiql.routes', 'graphiql');
-            $graphiQLController = config('debox.graphql::graphiql.controller', '\debox\graphql\GraphQLController@graphiql');
+            $graphiQLRoute = config('Nurdiansyah.Graphql::graphiql.routes', 'graphiql');
+            $graphiQLController = config('Nurdiansyah.Graphql::graphiql.controller', '\Nurdiansyah\Graphql\GraphQLController@graphiql');
 
             if (!$router instanceof \Illuminate\Routing\Router &&
                 preg_match($schemaParameterPattern, $graphiQLRoute)
             ) {
                 $router->get(preg_replace($schemaParameterPattern, '', $graphiQLRoute), [
-                    'as' => 'debox.graphql::graphiql',
+                    'as' => 'Nurdiansyah.Graphql::graphiql',
                     'uses' => $graphiQLController
                 ]);
                 $router->get(preg_replace($schemaParameterPattern, '{graphql_schema}', $graphiQLRoute), [
-                    'as' => 'debox.graphql::graphiql.with_schema',
+                    'as' => 'Nurdiansyah.Graphql::graphiql.with_schema',
                     'uses' => $graphiQLController
                 ]);
             } else {
                 $router->get($graphiQLRoute, [
-                    'as' => 'debox.graphql::graphiql',
-                    'middleware' => config('debox.graphql::graphiql.middleware', []),
+                    'as' => 'Nurdiansyah.Graphql::graphiql',
+                    'middleware' => config('Nurdiansyah.Graphql::graphiql.middleware', []),
                     'uses' => $graphiQLController
                 ]);
             }
@@ -146,5 +146,5 @@ Event::listen('backend.beforeRoute', function () {
     /*
      * Extensibility
      */
-    Event::fire('debox.graphql::route');
+    Event::fire('Nurdiansyah.Graphql::route');
 });

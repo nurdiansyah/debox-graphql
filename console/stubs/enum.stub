@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use debox\graphql\support\EnumType;
+use Nurdiansyah\Graphql\Support\EnumType;
 
 class DummyClass extends EnumType
 {

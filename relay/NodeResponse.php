@@ -1,5 +1,5 @@
 <?php
-namespace debox\graphql\relay;
+namespace Nurdiansyah\Graphql\Relay;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Fluent;

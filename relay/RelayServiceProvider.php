@@ -1,8 +1,8 @@
 <?php
-namespace debox\graphql\relay;
+namespace Nurdiansyah\Graphql\Relay;
 
 
-use debox\graphql\GraphQLService;
+use Nurdiansyah\Graphql\GraphQLService;
 use Illuminate\Contracts\Foundation\Application;
 
 class RelayServiceProvider {

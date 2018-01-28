@@ -1,4 +1,4 @@
-<?php namespace debox\graphql;
+<?php namespace Nurdiansyah\Graphql;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -28,7 +28,7 @@ class GraphQLController extends Controller
             return;
         }
 
-        $defaultSchema = config('debox.graphql::schema');
+        $defaultSchema = config('Nurdiansyah.Graphql::schema');
         if (is_array($route)) {
             $schema = array_get($route, '2.graphql_schema', $defaultSchema);
         } elseif (is_object($route)) {
@@ -37,7 +37,7 @@ class GraphQLController extends Controller
             $schema = $defaultSchema;
         }
 
-        $middleware = config('debox.graphql::middleware_schema.' . $schema, null);
+        $middleware = config('Nurdiansyah.Graphql::middleware_schema.' . $schema, null);
 
         if ($middleware) {
             $this->middleware($middleware);
@@ -50,7 +50,7 @@ class GraphQLController extends Controller
         $inputs = $request->all();
 
         if (is_null($graphql_schema)) {
-            $graphql_schema = config('debox.graphql::schema');
+            $graphql_schema = config('Nurdiansyah.Graphql::schema');
         }
 
         if (!$isBatch) {
@@ -62,8 +62,8 @@ class GraphQLController extends Controller
             }
         }
 
-        $headers = config('debox.graphql::headers', []);
-        $options = config('debox.graphql::json_encoding_options', 0);
+        $headers = config('Nurdiansyah.Graphql::headers', []);
+        $options = config('Nurdiansyah.Graphql::json_encoding_options', 0);
 
         $errors = !$isBatch ? array_get($data, 'errors', []) : [];
         $authorized = array_reduce($errors, function ($authorized, $error) {
@@ -77,7 +77,7 @@ class GraphQLController extends Controller
 
     protected function executeQuery($schema, $input)
     {
-        $variablesInputName = config('debox.graphql::variables_input_name', 'variables');
+        $variablesInputName = config('Nurdiansyah.Graphql::variables_input_name', 'variables');
         $query = array_get($input, 'query');
         $variables = array_get($input, $variablesInputName);
         if (is_string($variables)) {

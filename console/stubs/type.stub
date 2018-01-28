@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use GraphQL\Type\Definition\Type;
-use debox\graphql\support\Type as BaseType;
+use Nurdiansyah\Graphql\Support\Type as BaseType;
 use GraphQL;
 
 class DummyClass extends BaseType

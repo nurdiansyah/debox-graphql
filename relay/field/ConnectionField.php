@@ -1,8 +1,8 @@
 <?php
-namespace debox\graphql\relay\field;
+namespace Nurdiansyah\Graphql\Relay\Field;
 
-use debox\graphql\relay\EdgesCollection;
-use debox\graphql\support\GraphQLField;
+use Nurdiansyah\Graphql\Relay\EdgesCollection;
+use Nurdiansyah\Graphql\Support\GraphQLField;
 use GraphQL\Type\Definition\Type;
 use Illuminate\Database\Query\Builder;
 use October\Rain\Database\Relations\Relation;

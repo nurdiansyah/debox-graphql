@@ -1,4 +1,4 @@
-<?php namespace debox\graphql;
+<?php namespace Nurdiansyah\Graphql;
 
 use Illuminate\Routing\Controller as LaravelController;
 use Laravel\Lumen\Routing\Controller as LumenController;

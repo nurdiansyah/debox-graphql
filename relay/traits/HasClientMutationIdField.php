@@ -1,6 +1,6 @@
 <?php
 
-namespace debox\graphql\relay\traits;
+namespace Nurdiansyah\Graphql\Relay\Traits;
 
 use GraphQL\Type\Definition\Type;
 

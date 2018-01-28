@@ -1,5 +1,5 @@
 <?php
-namespace debox\graphql\relay\type;
+namespace Nurdiansyah\Graphql\Relay\Type;
 
 
 interface NodeContract {
