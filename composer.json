@@ -6,10 +6,30 @@
         "webonyx/graphql-php": "~0.10.2",
         "composer/installers": "~1.0"
     },
+    "require-dev": {
+        "fzaninotto/faker": "~1.7",
+        "laravel/framework": "5.5.*",
+        "october/rain": "~1.0",
+        "october/system": "~1.0",
+        "october/backend": "~1.0",
+        "october/cms": "~1.0",
+        "phpunit/phpunit": "~6.4",
+        "phpunit/phpunit-selenium": "^4.1"
+    },
     "authors": [
         {
             "name": "Nurdiansyah",
             "email": "nur.diansyah.ckt@gmail.com"
         }
-    ]
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "Backend\\": "modules/backend",
+            "CMS\\": "modules/cms",
+            "System\\": "modules/system"
+        }
+    },
+    "archive": {
+        "exclude": ["/tests"]
+    }
 }
