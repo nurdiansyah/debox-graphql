@@ -9,7 +9,7 @@ Event::listen('backend.beforeRoute', function () {
 
     $graphQLRouter = function ($router) use($schemaParameterPattern) {
         //Get routes from config
-        $routes = config('Debox.Graphql::routes');
+        $routes = config('debox.graphql::routes');
         $queryRoute = null;
         $mutationRoute = null;
         if (is_array($routes)) {
@@ -21,7 +21,7 @@ Event::listen('backend.beforeRoute', function () {
         }
 
         //Get controllers from config
-        $controllers = config('Debox.Graphql::controllers', '\Debox\Graphql\GraphQLController@query');
+        $controllers = config('debox.graphql::controllers', '\Debox\Graphql\GraphQLController@query');
         $queryController = null;
         $mutationController = null;
         if (is_array($controllers)) {
@@ -109,8 +109,8 @@ Event::listen('backend.beforeRoute', function () {
      * Other pages
      */
     Route::group([
-        'prefix' => config('Debox.Graphql::prefix'),
-        'middleware' => config('Debox.Graphql::middleware', [])
+        'prefix' => config('debox.graphql::prefix'),
+        'middleware' => config('debox.graphql::middleware', [])
     ], $graphQLRouter);
     /*
      * Graphiql
@@ -119,8 +119,8 @@ Event::listen('backend.beforeRoute', function () {
     $graphiQL = Config::get('Debox.Graphql::graphiql', true);
     if ($graphiQL) {
         Route::group([], function ($router) use ($schemaParameterPattern) {
-            $graphiQLRoute = config('Debox.Graphql::graphiql.routes', 'graphiql');
-            $graphiQLController = config('Debox.Graphql::graphiql.controller', '\Debox\Graphql\GraphQLController@graphiql');
+            $graphiQLRoute = config('debox.graphql::graphiql.routes', 'graphiql');
+            $graphiQLController = config('debox.graphql::graphiql.controller', '\Debox\Graphql\GraphQLController@graphiql');
 
             if (!$router instanceof \Illuminate\Routing\Router &&
                 preg_match($schemaParameterPattern, $graphiQLRoute)
@@ -136,7 +136,7 @@ Event::listen('backend.beforeRoute', function () {
             } else {
                 $router->get($graphiQLRoute, [
                     'as' => 'Debox.Graphql::graphiql',
-                    'middleware' => config('Debox.Graphql::graphiql.middleware', []),
+                    'middleware' => config('debox.graphql::graphiql.middleware', []),
                     'uses' => $graphiQLController
                 ]);
             }

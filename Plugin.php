@@ -168,7 +168,7 @@ class Plugin extends PluginBase {
      * @return void
      */
     protected function addTypes(GraphQLService $graphql) {
-        $types = $this->app['config']->get('Debox.Graphql::types', []);
+        $types = $this->app['config']->get('debox.graphql::types', []);
 
         foreach ($types as $name => $type) {
             $graphql->addType($type, is_numeric($name) ? null : $name);
@@ -182,7 +182,7 @@ class Plugin extends PluginBase {
      * @return void
      */
     protected function addSchemas(GraphQLService $graphql) {
-        $schemas = $this->app['config']->get('Debox.Graphql::schemas', []);
+        $schemas = $this->app['config']->get('debox.graphql::schemas', []);
 
         foreach ($schemas as $name => $schema) {
             $graphql->addSchema($name, $schema);
@@ -195,21 +195,21 @@ class Plugin extends PluginBase {
      * @return void
      */
     protected function applySecurityRules() {
-        $maxQueryComplexity = config('Debox.Graphql::security.query_max_complexity');
+        $maxQueryComplexity = config('debox.graphql::security.query_max_complexity');
         if ($maxQueryComplexity !== null) {
             /** @var QueryComplexity $queryComplexity */
             $queryComplexity = DocumentValidator::getRule('QueryComplexity');
             $queryComplexity->setMaxQueryComplexity($maxQueryComplexity);
         }
 
-        $maxQueryDepth = config('Debox.Graphql::security.query_max_depth');
+        $maxQueryDepth = config('debox.graphql::security.query_max_depth');
         if ($maxQueryDepth !== null) {
             /** @var QueryDepth $queryDepth */
             $queryDepth = DocumentValidator::getRule('QueryDepth');
             $queryDepth->setMaxQueryDepth($maxQueryDepth);
         }
 
-        $disableIntrospection = config('Debox.Graphql::security.disable_introspection');
+        $disableIntrospection = config('debox.graphql::security.disable_introspection');
         if ($disableIntrospection === true) {
             /** @var DisableIntrospection $disableIntrospection */
             $disableIntrospection = DocumentValidator::getRule('DisableIntrospection');

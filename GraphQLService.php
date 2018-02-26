@@ -39,7 +39,7 @@ class GraphQLService {
 
         $this->clearTypeInstances();
 
-        $schemaName = is_string($schema) ? $schema : config('Debox.Graphql::schema', 'default');
+        $schemaName = is_string($schema) ? $schema : config('debox.graphql::schema', 'default');
         if (!is_array($schema) && !isset($this->schemas[$schemaName])) {
             throw new SchemaNotFound('Type ' . $schemaName . ' not found.');
         }
@@ -133,7 +133,7 @@ class GraphQLService {
         $result = $this->executeQuery($query, $variables, $opts);
 
         if (!empty($result->errors)) {
-            $errorFormatter = config('Debox.Graphql::error_formatter', [self::class, 'formatError']);
+            $errorFormatter = config('debox.graphql::error_formatter', [self::class, 'formatError']);
 
             return [
                 'data' => $result->data,
