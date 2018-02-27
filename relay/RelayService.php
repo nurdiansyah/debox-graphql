@@ -1,8 +1,9 @@
 <?php
+
 namespace Debox\Graphql\Relay;
 
 use Debox\Graphql\GraphQLService;
-use Debox\Graphql\Relay\Field\ConnectionField;
+use Debox\Graphql\Relay\Field\ConnectionFieldImplement;
 use Debox\Graphql\Relay\Type\ConnectionType;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -13,6 +14,7 @@ class RelayService {
      */
     protected $app;
 
+
     /**
      * @var GraphQLService
      */
@@ -21,6 +23,44 @@ class RelayService {
     public function __construct($app) {
         $this->app = $app;
         $this->graphql = $app['graphql'];
+    }
+
+    public function connectionField($config = []) {
+        $field = new ConnectionFieldImplement($config);
+        return $field;
+    }
+
+    /**
+     * @param $edgeType
+     * @param array $config
+     * @return ConnectionFieldImplement
+     * @throws \Debox\Graphql\Exception\TypeNotFound
+     */
+    public function connectionFieldFromEdgeType($edgeType, $config = []) {
+        $typeName = array_get($edgeType->config, 'name');
+        $connectionName = array_get($config, 'connectionTypeName', str_plural($typeName) . 'Connection');
+        $connectionType = new ConnectionType([
+            'name' => $connectionName
+        ]);
+        $connectionType->setEdgeType($edgeType);
+        $this->graphql->addType($connectionType, $connectionName);
+        $fieldConfig = array_except($config, ['connectionTypeName']);
+        $field = new ConnectionFieldImplement($fieldConfig);
+        $field->setType($this->graphql->type($connectionName));
+        return $field;
+    }
+
+    /**
+     * @param $edgeType
+     * @param $queryBuilderResolver
+     * @param array $config
+     * @return ConnectionFieldImplement
+     * @throws \Debox\Graphql\Exception\TypeNotFound
+     */
+    public function connectionFieldFromEdgeTypeAndQueryBuilder($edgeType, $queryBuilderResolver, $config = []) {
+        $field = $this->connectionFieldFromEdgeType($edgeType, $config);
+        $field->setQueryBuilderResolver($queryBuilderResolver);
+        return $field;
     }
 
     public function toGlobalId($type, $id) {
