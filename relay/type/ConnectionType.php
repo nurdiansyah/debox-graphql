@@ -46,14 +46,15 @@ class ConnectionType extends GraphQLType {
     public function setEdgeType($edgeType) {
         $this->edgeType = $edgeType;
         $name = $edgeType->config['name'] . 'Edge';
-        app('graphql')->addType(ConnectionEdgeType::class, $name);
         return $this;
     }
 
     protected function getEdgeObjectType() {
         $edgeType = $this->getEdgeType();
         $name = $edgeType->config['name'] . 'Edge';
+        app('graphql')->addType(ConnectionEdgeType::class, $name);
         $type = app('graphql')->type($name);
+        $type->setEdgeType($edgeType);
         return $type;
     }
 
