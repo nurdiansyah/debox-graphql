@@ -2,10 +2,8 @@
 
 use Illuminate\Http\Request;
 
-class GraphQLController extends Controller
-{
-    public function __construct(Request $request)
-    {
+class GraphQLController extends Controller {
+    public function __construct(Request $request) {
         $route = $request->route();
 
         /**
@@ -29,7 +27,7 @@ class GraphQLController extends Controller
 
         $defaultSchema = config('debox.graphql::schema');
         if (is_array($route)) {
-            $schema = array_get($route, '2.graphql_schema', $defaultSchema);
+            $schema = array_get($route, 'graphql_schema', $defaultSchema);
         } elseif (is_object($route)) {
             $schema = $route->parameter('graphql_schema', $defaultSchema);
         } else {
@@ -43,8 +41,7 @@ class GraphQLController extends Controller
         }
     }
 
-    public function query(Request $request, $graphql_schema = null)
-    {
+    public function query(Request $request, $graphql_schema = null) {
         $isBatch = !$request->has('query');
         $inputs = $request->all();
 
@@ -74,8 +71,7 @@ class GraphQLController extends Controller
         return response()->json($data, 200, $headers, $options);
     }
 
-    protected function executeQuery($schema, $input)
-    {
+    protected function executeQuery($schema, $input) {
         $variablesInputName = config('debox.graphql::variables_input_name', 'variables');
         $query = array_get($input, 'query');
         $variables = array_get($input, $variablesInputName);
@@ -91,8 +87,7 @@ class GraphQLController extends Controller
         ]);
     }
 
-    protected function queryContext($query, $variables, $schema)
-    {
+    protected function queryContext($query, $variables, $schema) {
         try {
             return app('auth')->user();
         } catch (\Exception $e) {
